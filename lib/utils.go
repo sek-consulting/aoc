@@ -37,6 +37,15 @@ func Filter[T any](items []T, filter func(T) bool) []T {
 	return result
 }
 
+func Every[T any](items []T, filter func(T) bool) bool {
+	for _, item := range items {
+		if !filter(item) {
+			return false
+		}
+	}
+	return true
+}
+
 func Reverse[T any](items []T) []T {
 	result := make([]T, len(items))
 	for i, item := range items {
