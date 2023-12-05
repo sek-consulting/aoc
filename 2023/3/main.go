@@ -38,7 +38,7 @@ func part1(filename string) string {
 	for y, line := range lib.ReadLines(filename) {
 		for x, char := range strings.Split(line, "") {
 
-			if isNum(char) {
+			if lib.IsNum(char) {
 				if num == "" {
 					numCoords = make([]coord, 0)
 				}
@@ -66,18 +66,13 @@ func part1(filename string) string {
 	return strconv.Itoa(sum)
 }
 
-func isNum(s string) bool {
-	_, err := strconv.Atoi(s)
-	return err == nil
-}
-
 func isSymbol(s string) bool {
 	rgx := regexp.MustCompile("[^0-9.]")
 	return rgx.MatchString(s)
 }
 
 func isAdj(a, b coord) bool {
-	return lib.Abs[int](a.x-b.x) <= 1 && lib.Abs[int](a.y-b.y) <= 1
+	return lib.Abs(a.x-b.x) <= 1 && lib.Abs(a.y-b.y) <= 1
 }
 
 func hasAdj(a, b []coord) bool {
@@ -99,7 +94,7 @@ func part2(filename string) string {
 	for y, line := range lib.ReadLines(filename) {
 		for x, char := range strings.Split(line, "") {
 
-			if isNum(char) {
+			if lib.IsNum(char) {
 				if num == "" {
 					numCoords = make([]coord, 0)
 				}

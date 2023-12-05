@@ -1,6 +1,7 @@
 package lib
 
 import (
+	"math"
 	"os"
 	"strconv"
 	"strings"
@@ -19,11 +20,20 @@ func Atoi(s string) int {
 	return Must(strconv.Atoi(s))
 }
 
+func IsNum(s string) bool {
+	_, err := strconv.Atoi(s)
+	return err == nil
+}
+
 func Abs[T constraints.Integer | constraints.Float](v T) T {
 	if v < 0 {
 		return -v
 	}
 	return v
+}
+
+func Pow(num, pow int) int {
+	return int(math.Pow(float64(num), float64(pow)))
 }
 
 func Map[T, V any](items []T, mapper func(T) V) []V {

@@ -55,7 +55,7 @@ func part1(filename string) string {
 		rounds := splitIntoRounds(line)
 		isValid := true
 		for _, round := range rounds {
-			isValid = lib.Every[string](
+			isValid = lib.Every(
 				strings.Split(round, ", "),
 				func(val string) bool {
 					v := strings.Split(val, " ")
