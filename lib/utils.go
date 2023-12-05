@@ -19,6 +19,13 @@ func Atoi(s string) int {
 	return Must(strconv.Atoi(s))
 }
 
+func Abs[T constraints.Integer | constraints.Float](v T) T {
+	if v < 0 {
+		return -v
+	}
+	return v
+}
+
 func Map[T, V any](items []T, mapper func(T) V) []V {
 	result := make([]V, len(items))
 	for i, item := range items {
