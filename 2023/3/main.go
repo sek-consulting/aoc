@@ -32,7 +32,7 @@ type number struct {
 
 func part1(filename string) string {
 	var num string = ""
-	var numCords, symbolCoords []coord
+	var numCoords, symbolCoords []coord
 	var numbers []number
 
 	for y, line := range lib.ReadLines(filename) {
@@ -40,12 +40,12 @@ func part1(filename string) string {
 
 			if isNum(char) {
 				if num == "" {
-					numCords = make([]coord, 0)
+					numCoords = make([]coord, 0)
 				}
-				numCords = append(numCords, coord{y, x})
+				numCoords = append(numCoords, coord{y, x})
 				num += char
 			} else if num != "" {
-				numbers = append(numbers, number{lib.Atoi(num), numCords})
+				numbers = append(numbers, number{lib.Atoi(num), numCoords})
 				num = ""
 			}
 
@@ -93,7 +93,7 @@ func hasAdj(a, b []coord) bool {
 
 func part2(filename string) string {
 	var num string = ""
-	var numCords, gearCoords []coord
+	var numCoords, gearCoords []coord
 	var numbers []number
 
 	for y, line := range lib.ReadLines(filename) {
@@ -101,12 +101,12 @@ func part2(filename string) string {
 
 			if isNum(char) {
 				if num == "" {
-					numCords = make([]coord, 0)
+					numCoords = make([]coord, 0)
 				}
-				numCords = append(numCords, coord{y, x})
+				numCoords = append(numCoords, coord{y, x})
 				num += char
 			} else if num != "" {
-				numbers = append(numbers, number{lib.Atoi(num), numCords})
+				numbers = append(numbers, number{lib.Atoi(num), numCoords})
 				num = ""
 			}
 
