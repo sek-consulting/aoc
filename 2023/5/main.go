@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/sek-consulting/aoc/lib"
 )
@@ -13,7 +14,10 @@ func main() {
 	// fmt.Println(part1("input.txt"))
 
 	// lib.Expect(part2("example.txt"), "46")
+	start := time.Now()
 	fmt.Println(part2("input.txt"))
+	elapsed := time.Since(start)
+	fmt.Println(elapsed)
 }
 
 type mapping struct {
@@ -122,6 +126,7 @@ func part2(filename string) string {
 	// fmt.Println(seeds)
 	// fmt.Println(maps)
 
+	// start at 0 and move backwards through the mapping until match is found
 	solution := 0
 	for i := 0; ; i++ {
 		seed := i
