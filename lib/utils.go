@@ -36,6 +36,10 @@ func Pow(num, pow int) int {
 	return int(math.Pow(float64(num), float64(pow)))
 }
 
+func IsBetween(num, min, max int) bool {
+	return num >= min && num <= max
+}
+
 func Map[T, V any](items []T, mapper func(T) V) []V {
 	result := make([]V, len(items))
 	for i, item := range items {
